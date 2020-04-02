@@ -1,11 +1,11 @@
 #include <iostream>
 #include <stdlib.h>
-#include <thread>
 using namespace std;
 int x=0,y=0;
 int px=0,py=0;
 int p=0;
 char c='>';
+bool gs=false;
 void input()
 {
 char s;
@@ -92,11 +92,16 @@ cout<<"A/W/S/D to move"<<endl;
 }
 int main()
 {
-max_execution_time=5000
-while(true)
+while(!gs)
 {
 print();
 input();
+if((x<0)||(x>30)||(y<0)||(y>20))
+{
+gs=true;
+system("CLS");
+cout<<"Game Over"<<endl<<"-------------"<<endl<<"score = "<<(p-1)*10;
+}
 }
 return 0;
 }
